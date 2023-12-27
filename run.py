@@ -5,7 +5,9 @@ import search
 ab = search.GPSProblem('A', 'B'
                        , search.romania)
 
+print('\nBreath First Graph Search')
 print(search.breadth_first_graph_search(ab).path())  #hace una llamada a la función breadth_first_graph_search (search.breadth_first_graph_search) BUSQUEDA AMPLITUD
+print('\nDepth First Graph Search')
 print(search.depth_first_graph_search(ab).path()) #BUSQUEDA PROFUNDIDAD
 
 print('\nRAMIFICACIÓN Y SALTO (Búsqueda no informada)')

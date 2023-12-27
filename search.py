@@ -8,6 +8,7 @@ functions."""
 from utils import *
 import random
 import sys
+import time
 
 # ______________________________________________________________________________
 
@@ -99,19 +100,27 @@ def graph_search(problem, fringe): # busqueda en grafos con estructura de datos 
     closed = {} 
     fringe.append(Node(problem.initial)) # fringe = primera lista (lista abierta). Se añade el nodo inicial
 
+    start = time.time()
     count_visited, count_expanded = 0, 0
     while fringe:       # while fringe is not empty
         node = fringe.pop()     # extrae el ultimo elemento de la lista (el nodo)
         count_visited += 1
         if problem.goal_test(node.state):  # if node is a goal (si el vertice es el objetivo...)
+            end = time.time()
+            exec_time = end - start
             print(f'Nodos expandidos : {count_expanded}\nNodos  visitados: {count_visited}')
+            print(f'Tiempo de ejecución: {exec_time}')
             return node  #, generated, visited
         if node.state not in closed: # if node is not in closed (si el vertice no esta en la lista cerrada)
             count_expanded += 1
             closed[node.state] = True # add node to closed (añade el nodo a la lista cerrada para no volver a expandirlo)
             fringe.extend(node.expand(problem)) # expansion of the node (expande el nodo)
             # segun la implementacón de fringe, se añaden los nodos expandidos al final de la lista o al principio
-    return None
+    end = time.time()
+    exec_time = end - start
+    return None, exec_time
+    
+
 
 
 
