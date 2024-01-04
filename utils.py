@@ -581,7 +581,7 @@ class SortedHQueue(Queue):
         self.A.sort(key=lambda x: x.path_cost + self.problem.h(x), reverse=True)
 
     def pop(self):
-        return self.A.pop(0)
+        return self.A.pop()
 
 
 ## Fig: The idea is we can define things like Fig[3,10] later.

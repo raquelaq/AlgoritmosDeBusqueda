@@ -81,7 +81,7 @@ class Node: # Clase nodo
         while x.parent:
             result.append(x.parent)
             x = x.parent
-        return result
+        return result[::-1]
 
     def expand(self, problem): # Expande el nodo con los sucesores del problema
         """Return a list of nodes reachable from this node. [Fig. 3.8]"""
@@ -101,20 +101,23 @@ def graph_search(problem, fringe): # busqueda en grafos con estructura de datos 
     fringe.append(Node(problem.initial)) # fringe = primera lista (lista abierta). Se añade el nodo inicial
 
     start = time.time()
-    count_visited, count_expanded = 0, 0
+    count_generated, count_expanded = 0, 0
     while fringe:       # while fringe is not empty
         node = fringe.pop()     # extrae el ultimo elemento de la lista (el nodo)
-        count_visited += 1
+        count_generated += 1
         if problem.goal_test(node.state):  # if node is a goal (si el vertice es el objetivo...)
             end = time.time()
             exec_time = end - start
-            print(f'Nodos expandidos : {count_expanded}\nNodos  visitados: {count_visited}')
+            print(f'Nodos visitados : {count_expanded}')
+            print(f'Nodos generados : {count_generated}')            
             print(f'Tiempo de ejecución: {exec_time}')
-            return node  #, generated, visited
+            print(f'Coste del camino: {node.path_cost}')
+            return node
         if node.state not in closed: # if node is not in closed (si el vertice no esta en la lista cerrada)
             count_expanded += 1
-            closed[node.state] = True # add node to closed (añade el nodo a la lista cerrada para no volver a expandirlo)
-            fringe.extend(node.expand(problem)) # expansion of the node (expande el nodo)
+            closed[node.state] = True
+            fringe.extend(node.expand(problem))
+ # expansion of the node (expande el nodo)
             # segun la implementacón de fringe, se añaden los nodos expandidos al final de la lista o al principio
     end = time.time()
     exec_time = end - start

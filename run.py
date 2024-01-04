@@ -1,14 +1,15 @@
 # Search methods
 
 import search
+import time
 
 ab = search.GPSProblem('A', 'B'
                        , search.romania)
 
-print('\nBreath First Graph Search')
+print('\nBreath First Graph Search') # BUSQUEDA ANCHURA O AMPLITUD
 print(search.breadth_first_graph_search(ab).path())  #hace una llamada a la función breadth_first_graph_search (search.breadth_first_graph_search) BUSQUEDA AMPLITUD
-print('\nDepth First Graph Search')
-print(search.depth_first_graph_search(ab).path()) #BUSQUEDA PROFUNDIDAD
+print('\nDepth First Graph Search') # BUSQUEDA PROFUNDIDAD
+print(search.depth_first_graph_search(ab).path())
 
 print('\nRAMIFICACIÓN Y SALTO (Búsqueda no informada)')
 print(search.ramificacion_salto(ab).path())
