@@ -115,9 +115,7 @@ def graph_search(problem, fringe): # busqueda en grafos con estructura de datos 
             fringe.extend(successor)
  # expansion of the node (expande el nodo)
             # segun la implementacón de fringe, se añaden los nodos expandidos al final de la lista o al principio
-    end = time.time()
-    exec_time = end - start
-    return None, exec_time
+    return None
     
 
 
