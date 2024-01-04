@@ -11,6 +11,8 @@ El proyecto está formado por tres archivos .py que se encargan cada uno de lo s
 - **utils.py**: se encuntras las estructuras de datos y funciones útiles para implementar algoritmos de búsqueda y otras operaciones matemáticas y estadísticas. Incluye definiciones para manejar diccionarios, colas (como pilas y colas FIFO), funciones de manipulación de secuencias y estadísticas, y una implementación básica de colas ordenadas para algoritmos de búsqueda.
 
 ## Tabla Comparativa de los Algoritmos de Búsqueda
+<img width="630" alt="image" src="https://github.com/raquelaq/AlgoritmosDeBusqueda/assets/117348659/66ea5dea-df17-4e02-9a27-5fbe70419f06">
+<img width="629" alt="image" src="https://github.com/raquelaq/AlgoritmosDeBusqueda/assets/117348659/14ef2998-2dac-4144-b4fd-6d968edeb04a">
 
 ## Bibliografía
 
