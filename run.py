@@ -1,22 +1,43 @@
-# Search methods
-
 import search
 import time
 
-ab = search.GPSProblem('A', 'B'
-                       , search.romania)
+problems = [
+    ('Camino de A a B', search.GPSProblem('A', 'B', search.romania)),
+    ('Camino de O a E', search.GPSProblem('O', 'E', search.romania)),
+    ('Camino de G a Z', search.GPSProblem('G', 'Z', search.romania)),
+    ('Camino de N a D', search.GPSProblem('N', 'D', search.romania)),
+    ('Camino de M a F', search.GPSProblem('M', 'F', search.romania))
+]
 
-print('\nBreath First Graph Search') # BUSQUEDA ANCHURA O AMPLITUD
-print(search.breadth_first_graph_search(ab).path())  #hace una llamada a la función breadth_first_graph_search (search.breadth_first_graph_search) BUSQUEDA AMPLITUD
-print('\nDepth First Graph Search') # BUSQUEDA PROFUNDIDAD
-print(search.depth_first_graph_search(ab).path())
+for title, problem in problems:
+    print(f'\n\033[1m{title}\033[0m')
+    start_time = time.time()
+    
+    print('\nBúsqueda en anchura')
+    result = search.breadth_first_graph_search(problem).path()
+    elapsed_time = time.time() - start_time
+    print(result)
+    print(f"Tiempo de ejecución: {elapsed_time:.10f} seconds.")
 
-print('\nRAMIFICACIÓN Y SALTO (Búsqueda no informada)')
-print(search.ramificacion_salto(ab).path())
-print('\nRAMIFICACIÓN Y SALTO CON SUBESTIMACIÓN (Búsqueda informada)')
-print(search.ramificacion_salto_acotacion(ab).path())
+    print('\nBúsqueda en profundidad')
+    start_time = time.time()
+    result = search.depth_first_graph_search(problem).path()
+    elapsed_time = time.time() - start_time
+    print(result)
+    print(f"Tiempo de ejecución: {elapsed_time:.10f} seconds.")
 
+    print('\nBúsqueda de ramificación y salto')
+    start_time = time.time()
+    result = search.ramificacion_salto(problem).path()
+    elapsed_time = time.time() - start_time
+    print(result)
+    print(f"Tiempo de ejecución: {elapsed_time:.10f} seconds.")
 
-# Result:
-# [<Node B>, <Node P>, <Node R>, <Node S>, <Node A>] : 101 + 97 + 80 + 140 = 418
-# [<Node B>, <Node F>, <Node S>, <Node A>] : 211 + 99 + 140 = 450
+    print('\nBúsqueda de ramificación y salto con subestimación')
+    start_time = time.time()
+    result = search.ramificacion_salto_acotacion(problem).path()
+    elapsed_time = time.time() - start_time
+    print(result)
+    print(f"Tiempo de ejecución: {elapsed_time:.10f} seconds.")
+
+    print('\n-------------------------------------------------------------------------')
