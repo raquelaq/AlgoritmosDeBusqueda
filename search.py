@@ -100,16 +100,12 @@ def graph_search(problem, fringe): # busqueda en grafos con estructura de datos 
     closed = {} 
     fringe.append(Node(problem.initial)) # fringe = primera lista (lista abierta). Se añade el nodo inicial
 
-    start = time.time()
     count_generated, count_expanded = 1, 0
     while fringe:       # while fringe is not empty
         node = fringe.pop()     # extrae el ultimo elemento de la lista (el nodo)
         count_expanded += 1
         if problem.goal_test(node.state):  # if node is a goal (si el vertice es el objetivo...)
-            end = time.time()
-            exec_time = end - start
             print(f'Nodos generados : {count_generated}\nNodos visitados : {count_expanded}')            
-            print(f'Tiempo de ejecución: {exec_time}')
             print(f'Coste del camino: {node.path_cost}')
             return node
         if node.state not in closed: # if node is not in closed (si el vertice no esta en la lista cerrada)
