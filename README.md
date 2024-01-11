@@ -1,5 +1,7 @@
 # PRÁCTICA 1: ALGORITMOS DE BÚSQUEDA
 
+![DALL·E 2024-01-11 18 14 21 - Create a more colorful image for a GitHub README for a Python project, focusing on designing various search algorithms to find different paths to a sp](https://github.com/raquelaq/AlgoritmosDeBusqueda/assets/117348659/9b4ecb1d-084b-44b9-9288-0cec42016bc3)
+
 ## Resumen del Proyecto
 Este proyecto correspondiente a la asignatura de Fundamentos de los Sistemas Inteligentes titulado "Algoritmos de Búsqueda", está realizado por Raquel Almeida Quesada y Jorge Morales Llerandi, alumnos del Grado De Ciencia e Ingeniería de Datos en Universidad de Las Palmas de Gran Canaria. 
 La práctica consiste en la programación de diferentes algorítmos de búsqueda. Para ello usaremos el mapa de las ciudades de Rumanía, para encontrar el camino más óptimo de ir de una ciudad a otra teniendo en cuenta diferentes algortimos.
