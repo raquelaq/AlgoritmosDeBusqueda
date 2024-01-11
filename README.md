@@ -22,7 +22,7 @@ El proyecto está formado por tres archivos .py que se encargan cada uno de lo s
 - PDF's Explicativos de la asignatura "Fundamentos de los Sistemas Inteligentes" de la ULPGC.
 - Código base entregado por los profesores de la asignatura.
 - https://www.youtube.com/watch?v=vz4Bo1MfhTM
-- 
+  
 ## Autores
 - Raquel Almeida Quesada
 - Jorge Morales Llerandi
