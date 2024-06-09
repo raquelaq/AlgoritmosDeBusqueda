@@ -4,18 +4,24 @@
 
 
 ## Resumen del Proyecto
-Este proyecto correspondiente a la asignatura de Fundamentos de los Sistemas Inteligentes titulado "Algoritmos de Búsqueda", está realizado por Raquel Almeida Quesada y Jorge Morales Llerandi, alumnos del Grado De Ciencia e Ingeniería de Datos en Universidad de Las Palmas de Gran Canaria. 
-La práctica consiste en la programación de diferentes algorítmos de búsqueda. Para ello usaremos el mapa de las ciudades de Rumanía, para encontrar el camino más óptimo de ir de una ciudad a otra teniendo en cuenta diferentes algortimos.
+Este proyecto, desarrollado en el marco de la asignatura Fundamentos de los Sistemas Inteligentes, está titulado "Algoritmos de Búsqueda". Consiste en la implementación de diversos algoritmos de búsqueda utilizando el mapa de las ciudades de Rumanía, con el objetivo de encontrar la ruta más óptima entre ciudades según diferentes enfoques algorítmicos.
 
 ## Estructura
-El proyecto está formado por tres archivos .py que se encargan cada uno de lo siguiente:
-- **run.py**: ejecuta los diferentes métodos de búsqueda en grafos sobre el mapa de las ciudades de Rumanía.
-- **search.py**: implementa los algoritmos de búsqueda en grafos, incluyendo clases para definir problemas de búsqueda (Problem), nodos de un árbol de búsqueda (Node), y métodos para realizar las diferentes búsquedas. Además, contiene una estructura para representar grafos y una adaptación específica para el problema de las ciudadades de Rumanía.
-- **utils.py**: se encuntras las estructuras de datos y funciones útiles para implementar algoritmos de búsqueda y otras operaciones matemáticas y estadísticas. Incluye definiciones para manejar diccionarios, colas (como pilas y colas FIFO), funciones de manipulación de secuencias y estadísticas, y una implementación básica de colas ordenadas para algoritmos de búsqueda.
+El proyecto está formado por tres archivos de Python, cada uno con una función específica:
+
+- **run.py**: ejecuta los distintos métodos de búsqueda en grafos sobre el mapa de las ciudades de Rumanía.
+- **search.py**: aquí se implementan los algoritmos de búsqueda en grafos. Incluye clases para definir problemas de búsqueda (Problem), nodos en un árbol de búsqueda (Node) y métodos para realizar diversas búsquedas. Además, contiene una estructura para representar grafos y una adaptación específica para el problema de las ciudades de Rumanía.
+- **utils.py**: contiene estructuras de datos y funciones auxiliares para implementar algoritmos de búsqueda, así como otras operaciones matemáticas y estadísticas. Incluye definiciones para manejar diccionarios, colas (como pilas y colas FIFO), funciones para manipulación de secuencias y estadísticas, y una implementación básica de colas ordenadas para algoritmos de búsqueda.
 
 ## Tabla Comparativa de los Algoritmos de Búsqueda
 <img width="630" alt="image" src="https://github.com/raquelaq/AlgoritmosDeBusqueda/assets/117348659/66ea5dea-df17-4e02-9a27-5fbe70419f06">
 <img width="629" alt="image" src="https://github.com/raquelaq/AlgoritmosDeBusqueda/assets/117348659/14ef2998-2dac-4144-b4fd-6d968edeb04a">
+
+## Descripción de Algoritmos
+### SortedQueue
+Esta función consiste en una cola FIFO que se utiliza para implementar algoritmos de búsqueda ordenada. Se ordena automáticamente en función del coste del camino (path_cost).
+### SortedHQueue
+Es similar a SortedQueue, pero incluye una heurística en su ordenación. 
 
 ## Bibliografía
 - chat.openai.com
