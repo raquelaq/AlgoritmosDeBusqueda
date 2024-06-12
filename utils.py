@@ -542,47 +542,49 @@ class FIFOQueue(Queue):
             self.A = self.A[self.start:]
             self.start = 0
         return e
-    
-class SortedQueue(Queue):
+
+### --- MI CODIGO --- ###   
+class SortedQueue(Queue): # ordena los elementos según el coste del camino
     """A First-In-First-Out Queue."""
 
     def __init__(self):
-        self.A = []
+        self.A = [] # lista vacía de nodos
 
     def append(self, item):
-        self.A.append(item)
+        self.A.append(item) # añade un nodo al final de la lista
 
     def __len__(self):
-        return len(self.A)
+        return len(self.A) # devuelve el numero de elementos de la lista (longitud)
 
-    def extend(self, items):
-        self.A.extend(items)
-        self.A.sort(key=lambda x: x.path_cost)
+    def extend(self, items): # añade varios nodos a la lista
+        self.A.extend(items) # añade los nodos al final de la lista
+        self.A.sort(key=lambda x: x.path_cost) # ordena los nodos según el coste del camino
 
     def pop(self):
-        return self.A.pop(0)
+        return self.A.pop(0) # elimina y devuelve el primer elemento de la lista, mantiendo el comportamiento FIFO
 
 
-class SortedHQueue(Queue):
+class SortedHQueue(Queue): # cola FIFO ordenada por la suma del coste del camino y la heurística
     """A First-In-First-Out Queue."""
 
-    def __init__(self, problem):
-        self.A = []
-        self.problem = problem
+    def __init__(self, problem): 
+        self.A = [] # lista vacía de nodos
+        self.problem = problem # problema de búsqueda
 
     def append(self, item):
-        self.A.append(item)
+        self.A.append(item) # añade un nodo al final de la lista
 
     def __len__(self):
-        return len(self.A)
+        return len(self.A) # devuelve el numero de elementos de la lista (longitud)
 
     def extend(self, items):
-        self.A.extend(items)
-        self.A.sort(key=lambda x: x.path_cost + self.problem.h(x), reverse=True)
+        self.A.extend(items) # añade los nodos al final de la lista
+        self.A.sort(key=lambda x: x.path_cost + self.problem.h(x), reverse=True) # ordena los nodos según la suma del coste del camino y la heurística
 
     def pop(self):
-        return self.A.pop()
+        return self.A.pop() # elimina y devuelve el último elemento de la lista, mantiendo el comportamiento FIFO
 
+### --- FIN MI CODIGO --- ###
 
 ## Fig: The idea is we can define things like Fig[3,10] later.
 ## Alas, it is Fig[3,10] not Fig[3.10], because that would be the same as Fig[3.1]

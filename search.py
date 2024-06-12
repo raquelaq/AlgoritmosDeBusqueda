@@ -72,10 +72,10 @@ class Node: # Clase nodo
         if parent: # Si tiene padre, la profundidad del nodo se incremente en 1
             self.depth = parent.depth + 1
 
-    def __repr__(self): # Devuelve una representación de cadena del nodo (util para depuracion)
+    def __repr__(self): # Devuelve una representación en cadena del nodo (util para depuracion)
         return "<Node %s>" % (self.state,)
 
-    def path(self): # Crea una lista de nodos desde la raiz hasta este nodo. Comienza por el actual y va subiendo hasta la raiz
+    def path(self): # Crea una lista de nodos desde la raiz hasta este nodo. Comienza por el actual y va subiendo hasta la raiz. Crea el camino
         """Create a list of nodes from the root to this node."""
         x, result = self, [self]
         while x.parent:
@@ -100,25 +100,23 @@ def graph_search(problem, fringe): # busqueda en grafos con estructura de datos 
     closed = {} 
     fringe.append(Node(problem.initial)) # fringe = primera lista (lista abierta). Se añade el nodo inicial
 
-    count_generated, count_expanded = 1, 0
+    count_generated, count_expanded = 1, 0 # contador de nodos generados y nodos visitados
     while fringe:       # while fringe is not empty
         node = fringe.pop()     # extrae el ultimo elemento de la lista (el nodo)
-        count_expanded += 1
+        count_expanded += 1 # cuenta cuantos nodos se han visitado
         if problem.goal_test(node.state):  # if node is a goal (si el vertice es el objetivo...)
-            print(f'Nodos generados : {count_generated}\nNodos visitados : {count_expanded}')            
-            print(f'Coste del camino: {node.path_cost}')
+            print(f'Nodos generados : {count_generated}\nNodos visitados : {count_expanded}') # imprime el numero de nodos generados y visitados      
+            print(f'Coste del camino: {node.path_cost}') # imprime el coste del camino
             return node
         if node.state not in closed: # if node is not in closed (si el vertice no esta en la lista cerrada)
-            closed[node.state] = True
-            successor = node.expand(problem)
-            count_generated += len(successor)
-            fringe.extend(successor)
- # expansion of the node (expande el nodo)
+            closed[node.state] = True # añade el nodo a la lista cerrada
+            successor = node.expand(problem) # expande el nodo
+            count_generated += len(successor) # cuenta cuantos nodos se han generado
+            fringe.extend(successor) # añade los nodos expandidos al final de la lista (fringe)
+            # expansion of the node (expande el nodo)
             # segun la implementacón de fringe, se añaden los nodos expandidos al final de la lista o al principio
     return None
     
-
-
 
 
 def breadth_first_graph_search(problem): # busqueda en anchura
@@ -138,9 +136,9 @@ def ramificacion_salto(problem):
     return graph_search(problem, SortedQueue()) # SortedQueue -> fringe ordenada
 
 def ramificacion_salto_acotacion(problem):
-    return graph_search(problem, SortedHQueue(problem)) # SortedQueue -> fringe ordenada
+    return graph_search(problem, SortedHQueue(problem)) # SortedHQueue -> fringe ordenada con subestimación (heurística)
 
-
+### ---- FIN MI CÓDIGO ---- ###
 
 # _____________________________________________________________________________
 # The remainder of this file implements examples for the search algorithms.
